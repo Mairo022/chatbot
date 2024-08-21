@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --text: hsl(217, 45%, 95%);
+  --text-secondary: hsl(217, 5%, 75%);
+  --text-tertiary: hsl(217, 45%, 45%);
+  --background: hsl(220, 11%, 15%);
+  --background-secondary: hsl(214, 25%, 22%);
+  --background-tertiary: hsl(214, 10%, 24%);
+  --background-danger: hsl(5,40%,20%);
+  --border-danger: hsl(5,40%,25%);
+}
+
+body {
+  color: var(--text);
+  background-color: var(--background);
+  font-size: 1rem;
+  font-family: 'Noto Sans', 'Helvetica Neue', 'Arial', 'Segoe UI', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--text-secondary);
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--background-tertiary);
+  border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(214, 10%, 34%);
+}
