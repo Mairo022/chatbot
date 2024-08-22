@@ -1,12 +1,14 @@
 import { Message } from "ai/react";
 import { useEffect, useState } from "react";
 
+// Handle chat's displayed loading state 
 function useShowIsLoading (messages: Message[], isLoading: boolean): boolean {
   const [showLoading, setShowLoading] = useState<boolean>(false)
   
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout> | number = 0
 
+    // Wait before displaying loading
     if (isLoading) {
       timeout = setTimeout(() => {
         setShowLoading(true)
@@ -22,6 +24,7 @@ function useShowIsLoading (messages: Message[], isLoading: boolean): boolean {
     }
   }, [isLoading])
 
+  // Hide loading when answer is being generated
   useEffect(() => {
     if (messages.length === 0) return
     const lastMessage = messages[messages.length-1]

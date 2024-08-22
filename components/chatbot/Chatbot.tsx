@@ -4,8 +4,8 @@ import Image from 'next/image';
 import { useChat } from 'ai/react';
 import Loading from "@/components/loading/Loading";
 import ErrorMsg from "@/components/errorMsg/ErrorMsg";
-import useShowIsLoading from "@/hooks/useShowIsLoading";
-import EditForm from "@/components/chatbot/EditForm";
+import useShowIsLoading from "@/components/chatbot/hooks/useShowIsLoading";
+import EditForm from "@/components/chatbot/components/EditForm";
 import useScrollTo from "@/hooks/useScrollTo";
 
 export default function Chatbot() {
@@ -21,6 +21,8 @@ export default function Chatbot() {
   useAutosizeTextArea(textAreaRef.current, input)
   useScrollTo(messagesRef.current, [messages, input])
 
+  // Remove messages after edit index
+  // and submit with edited message
   function handleEditSubmit(e: FormEvent<HTMLFormElement>, editedMessage: string) {
     const newMessages = messages.slice(0, editIndex+1)
     newMessages[editIndex].content = editedMessage
@@ -44,6 +46,7 @@ export default function Chatbot() {
     return editIndex === i
   }
 
+  // Focus on textarea on page load
   useEffect(() => {
     textAreaRef.current?.focus()
   }, [])
