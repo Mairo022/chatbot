@@ -55,6 +55,11 @@ export default function Chatbot() {
     <div className="chatbox flex flex-col mx-auto h-full px-6 py-4 gap-6">
       <div className="messages_container grow max-lg:pr-4 whitespace-pre-line overflow-y-auto overflow-x-hidden break-words transition-[padding]" ref={messagesRef}>
         <div className="messages max-w-[800px] mx-auto">
+          {messages.length === 0 &&
+            <div className="message w-fit px-8 py-4 rounded-lg bg-tertiary-bg shadow mb-8">
+              How can I help you today?
+            </div>
+          }
           {messages.map((message, i) => (
             message.role === "user" && isEditing(i) &&
               <EditForm
