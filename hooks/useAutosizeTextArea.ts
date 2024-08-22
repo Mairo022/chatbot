@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import useWindowWidth from "./useWindowWidth";
 
+// Adjust textarea's height by it's scroll height
 function useAutosizeTextArea (textAreaRef: HTMLTextAreaElement | null, value: string, offset: number = 0): void {
   const width = useWindowWidth()
   

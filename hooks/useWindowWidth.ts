@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+// Return current window width
 function useWindowWidth(): number | undefined {
   const [width, setWidth] = useState<number>()
 
